@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle | Clima Click</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body class="weather-app">
+
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <span class="brand-name">Clima Click</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="detalle.html" class="nav-link active">Detalle</a>
+        </div>
+    </nav>
+
+    <main class="weather-app__content container">
+
+        <button onclick="history.back()" class="btn-back">
+            <i class="fas fa-chevron-left"></i> Volver
+        </button>
+
+        <div id="mensaje-carga" class="mensaje-estado">
+            <div class="spinner"></div>
+            <p>Cargando datos del clima...</p>
+        </div>
+
+        <div id="mensaje-error" class="mensaje-estado error" style="display:none">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>No se pudieron cargar los datos. Intenta de nuevo.</p>
+            <button onclick="history.back()" class="btn-reintentar">Volver al inicio</button>
+        </div>
+
+        <div id="detalle-container" style="display:none"></div>
+
+    </main>
+
+    <footer class="weather-app__footer">
+        <div class="container">
+            <p>&copy; 2026 Clima Click. Todos los derechos reservados.</p>
+            <small>Camila Andrea Molina Hernández — Coronel, Chile</small>
+        </div>
+    </footer>
+
+    <script src="./assets/js/datos.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script>
+        const app = new WeatherApp()
+        app.cargarDetalleLugar()
+    </script>
+</body>
+</html>
